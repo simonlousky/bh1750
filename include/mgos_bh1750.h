@@ -43,6 +43,8 @@ typedef struct{
     uint16_t addr;
 } bh1750_t; 
 
+typedef struct mgos_i2c mgos_i2c;
+
 // No active state
 #define BH1750_POWER_DOWN 0x00
 
@@ -55,7 +57,7 @@ typedef struct{
 /* 
 doc
 */
-bh1750_t bh1750_init(uint16_t addr);
+bh1750_t* bh1750_init(uint16_t addr);
 
 /*
 doc
@@ -65,7 +67,7 @@ bool begin(Mode mode);
 /*
 doc
 */
-bool configure(Mode mode);
+bool configure(bh1750_t* bh1750, Mode mode);
 
 /*
 doc

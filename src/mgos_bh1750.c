@@ -3,7 +3,7 @@
 
 /* Mode mapping */
 
-Mode[MODE_NUM_OF] mode_lut = {
+Mode mode_lut[MODE_NUM_OF] = {
     /* UNCONFIGURED:*/              0,
     /*CONTINUOUS_HIGH_RES_MODE:*/   0x10,
     /*CONTINUOUS_HIGH_RES_MODE_2:*/ 0x11,
@@ -31,8 +31,10 @@ doc
 */
 bool begin(Mode mode){
     if (mode < UNCONFIGURED || mode > ONE_TIME_LOW_RES_MODE){
-        LOG()
+        // LOG()
+        return false;
     }
+    return true;
 }
 
 /*
@@ -40,17 +42,19 @@ doc
 */
 bool configure(bh1750_t* bh1750, Mode mode){
     if (!bh1750){
-        ESP_LOGE(TAG, "mgos_bh1750.configure: null arg");
-        return false
+        // ESP_LOGE(TAG, "mgos_bh1750.configure: null arg");
+        return false;
     }
 
     mgos_i2c* i2c = mgos_i2c_get_global();
     bool mgos_i2c_write(i2c, bh1750->addr, mode_lut[mode], sizeof(mode), TRUE);
-    
+    return true;
 }
 
 /*
 doc
 */
-uint16_t readLightLevel(bool maxWait);
+uint16_t readLightLevel(bool maxWait){
+    return 0;
+}
 
