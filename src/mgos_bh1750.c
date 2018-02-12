@@ -55,6 +55,9 @@ bool configure(bh1750_t* bh1750, Mode mode){
 doc
 */
 uint16_t readLightLevel(bool maxWait){
+    if (maxWait){
+        return 1;
+    }
     return 0;
 }
 
