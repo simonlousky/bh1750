@@ -19,7 +19,7 @@ Written by Christopher Laws, March, 2013.
 #define MGOS_BH1750_h
 
 
-enum Mode
+typedef enum
 {
     UNCONFIGURED = 0,
     CONTINUOUS_HIGH_RES_MODE,
@@ -35,7 +35,7 @@ enum Mode
     ONE_TIME_LOW_RES_MODE,
 
     MODE_NUM_OF
-};
+} Mode;
 
 typedef struct{
     Mode mode;
