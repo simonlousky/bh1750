@@ -4,7 +4,7 @@
 
 /* Mode mapping */
 
-Mode [MODE_NUM_OF] = {
+Mode[MODE_NUM_OF] mode_lut = {
     /* UNCONFIGURED:*/              0,
     /*CONTINUOUS_HIGH_RES_MODE:*/   0x10,
     /*CONTINUOUS_HIGH_RES_MODE_2:*/ 0x11,
@@ -21,7 +21,7 @@ bool mgos_bh1750_init(void){
 /* 
 doc
 */
-bh1750_t* bh1750_init(byte addr){
+bh1750_t* bh1750_init(uint16_t addr){
     bh1750_t* res = malloc (sizeof(res));
     res->addr = addr;
     return res;
@@ -46,7 +46,7 @@ bool configure(bh1750_t* bh1750, Mode mode){
     }
 
     mgos_i2c* i2c = mgos_i2c_get_global();
-    bool mgos_i2c_write(i2c, (uint16_t)bh1750->addr, mode, sizeof(mode), TRUE);
+    bool mgos_i2c_write(i2c, bh1750->addr, mode_lut[mode], sizeof(mode), TRUE);
     
 }
 

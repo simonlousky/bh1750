@@ -40,7 +40,7 @@ enum Mode
 typedef struct{
     Mode mode;
     int BH1750_I2CADDR;
-    byte addr;
+    uint16_t addr;
 } bh1750_t; 
 
 // No active state
