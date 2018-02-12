@@ -71,6 +71,6 @@ bool configure(bh1750_t* bh1750, Mode mode);
 /*
 doc
 */
-uint16_t readLightLevel(bool maxWait);
+uint16_t readLightLevel(bh1750* bh1750);
 
 #endif /* MGOS_BH1750 */

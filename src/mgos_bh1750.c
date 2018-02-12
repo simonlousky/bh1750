@@ -1,5 +1,6 @@
 #include "mgos_bh1750.h"
 #include "mgos_i2c.h"
+#include<stdio.h>
 
 /* Mode mapping */
 
@@ -31,7 +32,7 @@ doc
 */
 bool begin(Mode mode){
     if (mode < UNCONFIGURED || mode > ONE_TIME_LOW_RES_MODE){
-        // LOG()
+        printf("error");
         return false;
     }
     return true;
@@ -48,16 +49,24 @@ bool configure(bh1750_t* bh1750, Mode mode){
 
     mgos_i2c* i2c = mgos_i2c_get_global();
     mgos_i2c_write(i2c, bh1750->addr, (void*) &mode_lut[mode], sizeof(uint16_t), true);
+    Sys.usleep(10000);
     return true;
 }
 
 /*
 doc
 */
-uint16_t readLightLevel(bool maxWait){
-    if (maxWait){
-        return 1;
+uint16_t readLightLevel(bh1750* bh1750){
+    if(!bh1750) {
+        return -1
     }
-    return 0;
+    mgos_i2c* i2c = mgos_i2c_get_global();
+    
+    mgos_i2c_write(i2c, bh1750->addr, (void*) &mode_lut[mode], sizeof(uint16_t), true);
+    uint16_t res;
+    if(mgos_i2c_read(i2c, bh1750->addr, &res, sizeof(res), true)){
+        return res / 1.2 ;
+    }
+    return -1;
 }
 
