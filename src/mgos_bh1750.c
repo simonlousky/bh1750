@@ -1,6 +1,5 @@
 #include "mgos_bh1750.h"
 #include "mgos_i2c.h"
-#include "esp_log.h"
 
 /* Mode mapping */
 
