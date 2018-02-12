@@ -11,7 +11,7 @@ Mode mode_lut[MODE_NUM_OF] = {
     /*ONE_TIME_HIGH_RES_MODE:*/     0x20,
     /*ONE_TIME_HIGH_RES_MODE_2:*/   0x21,
     /*ONE_TIME_LOW_RES_MODE:*/      0x23,
-}
+};
 
 bool mgos_bh1750_init(void){
     return true;
