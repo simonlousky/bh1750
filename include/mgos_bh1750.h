@@ -55,7 +55,7 @@ typedef struct{
 /* 
 doc
 */
-bh1750_t bh1750_init(byte addr);
+bh1750_t bh1750_init(uint16_t addr);
 
 /*
 doc
