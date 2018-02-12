@@ -22,18 +22,19 @@ Written by Christopher Laws, March, 2013.
 enum Mode
 {
     UNCONFIGURED = 0,
-    // Measurement at 1lx resolution. Measurement time is approx 120ms.
-    CONTINUOUS_HIGH_RES_MODE  = 0x10,
+    CONTINUOUS_HIGH_RES_MODE,
     // Measurement at 0.5lx resolution. Measurement time is approx 120ms.
-    CONTINUOUS_HIGH_RES_MODE_2 = 0x11,
+    CONTINUOUS_HIGH_RES_MODE_2,
     // Measurement at 4lx resolution. Measurement time is approx 16ms.
-    CONTINUOUS_LOW_RES_MODE = 0x13,
+    CONTINUOUS_LOW_RES_MODE,
     // Measurement at 1lx resolution. Measurement time is approx 120ms.
-    ONE_TIME_HIGH_RES_MODE = 0x20,
+    ONE_TIME_HIGH_RES_MODE,
     // Measurement at 0.5lx resolution. Measurement time is approx 120ms.
-    ONE_TIME_HIGH_RES_MODE_2 = 0x21,
+    ONE_TIME_HIGH_RES_MODE_2,
     // Measurement at 1lx resolution. Measurement time is approx 120ms.
-    ONE_TIME_LOW_RES_MODE = 0x23
+    ONE_TIME_LOW_RES_MODE,
+
+    MODE_NUM_OF
 };
 
 typedef struct{
