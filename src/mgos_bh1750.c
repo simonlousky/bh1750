@@ -47,7 +47,7 @@ bool configure(bh1750_t* bh1750, Mode mode){
     }
 
     mgos_i2c* i2c = mgos_i2c_get_global();
-    bool mgos_i2c_write(i2c, bh1750->addr, mode_lut[mode], sizeof(mode), TRUE);
+    bool mgos_i2c_write(i2c, (bh1750->addr), mode_lut[mode], sizeof(mode), true);
     return true;
 }
 

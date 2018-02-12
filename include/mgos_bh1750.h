@@ -39,7 +39,6 @@ typedef enum
 
 typedef struct{
     Mode mode;
-    int BH1750_I2CADDR;
     uint16_t addr;
 } bh1750_t; 
 
